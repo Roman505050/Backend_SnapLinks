@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 app = FastAPI()
 templates = Jinja2Templates("web")
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
